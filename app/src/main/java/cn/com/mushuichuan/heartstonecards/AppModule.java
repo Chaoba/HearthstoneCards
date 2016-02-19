@@ -4,7 +4,6 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
-import cn.com.mushuichuan.heartstonecards.api.IApi;
 import dagger.Module;
 import dagger.Provides;
 
@@ -32,6 +31,4 @@ public class AppModule {
     public Context provideApplicationContext() {
         return mContext;
     }
-
-
 }

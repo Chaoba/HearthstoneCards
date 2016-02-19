@@ -20,5 +20,4 @@ public interface AppComponent {
 
     void inject(MainActivity mainActivity);
 
-//    public IApi provideApi();
 }

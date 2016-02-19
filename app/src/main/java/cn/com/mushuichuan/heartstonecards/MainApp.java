@@ -27,9 +27,9 @@ public class MainApp extends Application {
         initializeInjector();
         if (BuildConfig.DEBUG) {
             Stetho.initialize(Stetho.newInitializerBuilder(this)
-                            .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                            .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-                            .build());
+                    .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                    .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                    .build());
         }
     }
 
