@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_items">
+        <item>classes</item>
+        <item>sets</item>
+        <item>types</item>
+        <item>factions</item>
+        <item>qualities</item>
+        <item>races</item>
+    </string-array>
+
+</resources>

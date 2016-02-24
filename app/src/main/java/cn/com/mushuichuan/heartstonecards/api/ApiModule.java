@@ -1,7 +1,14 @@
 package cn.com.mushuichuan.heartstonecards.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.List;
+
 import javax.inject.Singleton;
 
+import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -19,11 +26,14 @@ public class ApiModule {
     @Provides
     @Singleton
     public IApi getCardsApi(OkHttpClient client) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(new TypeToken<List<Card>>() {}.getType(), new CardsDeserialiser())
+                .create();
 
         Retrofit CardsApiAdapter = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();
         return CardsApiAdapter.create(IApi.class);

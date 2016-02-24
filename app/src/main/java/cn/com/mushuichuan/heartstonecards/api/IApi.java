@@ -38,8 +38,8 @@ public interface IApi {
     @GET("cards/races/{race}")
     Observable<List<Card>> getCardByRace(@Path("race") String classes, @Query("locale") String locale);
 
-    @GET("cards/types/{type}")
-    Observable<List<Card>> getCardByType(@Path("type") String classes, @Query("locale") String locale);
+    @GET("cards/types/{menuType}")
+    Observable<List<Card>> getCardByType(@Path("menuType") String classes, @Query("locale") String locale);
 
     @GET("cards/{name}")
     Observable<Card> getSingleCard(@Path("name") String classes, @Query("locale") String locale);

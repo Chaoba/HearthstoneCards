@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">HeartstoneCards</string>
+    <string name="menu_classses">Classes</string>
+    <string name="menu_sets">Sets</string>
+    <string name="menu_types">Types</string>
+    <string name="menu_factions">Factions</string>
+    <string name="menu_qualities">Qualities</string>
+    <string name="menu_races">Races</string>
+
+
+
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="loading">Loading</string>
 </resources>

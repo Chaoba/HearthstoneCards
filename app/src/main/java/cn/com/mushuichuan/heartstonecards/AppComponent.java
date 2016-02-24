@@ -8,16 +8,17 @@ package cn.com.mushuichuan.heartstonecards;
 import javax.inject.Singleton;
 
 import cn.com.mushuichuan.heartstonecards.api.ApiModule;
-import cn.com.mushuichuan.heartstonecards.api.IApi;
 import cn.com.mushuichuan.heartstonecards.api.NetworkModule;
-import cn.com.mushuichuan.heartstonecards.ui.MainActivity;
+import cn.com.mushuichuan.heartstonecards.ui.BaseActivity;
+import cn.com.mushuichuan.heartstonecards.ui.fragments.BaseFragment;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {AppModule.class, NetworkModule.class, ApiModule.class,})
+@Component(modules = {NetworkModule.class, ApiModule.class, AppModule.class})
 public interface AppComponent {
     void inject(MainApp app);
 
-    void inject(MainActivity mainActivity);
+    void inject(BaseActivity baseActivity);
 
+    void inject(BaseFragment baseFragment);
 }

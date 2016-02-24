@@ -1,12 +1,14 @@
 package cn.com.mushuichuan.heartstonecards.mvp.model;
 
+import java.util.List;
+
 /**
  * Created by Liyanshun on 2016/2/18.
  * example:{
  * "cardId": "NEW1_023",
  * "name": "Faerie Dragon",
  * "cardSet": "Classic",
- * "type": "Minion",
+ * "menuType": "Minion",
  * "rarity": "Common",
  * "cost": 2,
  * "attack": 3,
@@ -36,5 +38,5 @@ public class Card extends BaseCard {
     public String flavor;
     public String artist;
     public String race;
-    public BaseCard mechanics;
+    public List<BaseCard> mechanics;
 }
