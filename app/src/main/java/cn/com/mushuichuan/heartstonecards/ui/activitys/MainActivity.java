@@ -1,4 +1,4 @@
-package cn.com.mushuichuan.heartstonecards.ui;
+package cn.com.mushuichuan.heartstonecards.ui.activitys;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -19,7 +19,7 @@ import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.ui.fragments.ListFragment;
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, IActivity {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +27,6 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,7 +36,9 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        showFragment(new ListFragment(), false);
+        navigationView.setCheckedItem(R.id.menu_classses);
+        showFragment(new ListFragment());
+        setTitle(R.string.menu_classses);
     }
 
     @Override
@@ -88,34 +81,37 @@ public class MainActivity extends BaseActivity
         int type = ListFragment.KEY_CLASSES;
         if (id == R.id.menu_classses) {
             type = ListFragment.KEY_CLASSES;
+            setTitle(R.string.menu_classses);
         } else if (id == R.id.menu_factions) {
             type = ListFragment.KEY_FACTIONS;
+            setTitle(R.string.menu_factions);
         } else if (id == R.id.menu_qualities) {
             type = ListFragment.KEY_QUALITIES;
+            setTitle(R.string.menu_qualities);
         } else if (id == R.id.menu_races) {
             type = ListFragment.KEY_RACES;
+            setTitle(R.string.menu_races);
         } else if (id == R.id.menu_sets) {
             type = ListFragment.KEY_SETS;
+            setTitle(R.string.menu_sets);
         } else if (id == R.id.menu_types) {
             type = ListFragment.KEY_TYPES;
+            setTitle(R.string.menu_types);
         }
         Bundle data = new Bundle();
         data.putInt(ListFragment.MENU_KEY, type);
         fragment.setArguments(data);
-        showFragment(fragment, false);
+        showFragment(fragment);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    @Override
-    public void showFragment(Fragment f, boolean addToStack) {
+
+    public void showFragment(Fragment f) {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction addTransaction = manager.beginTransaction();
         addTransaction.replace(R.id.body, f);
-        if (addToStack) {
-            addTransaction.addToBackStack(f.getTag());
-        }
         addTransaction.commit();
     }
 }

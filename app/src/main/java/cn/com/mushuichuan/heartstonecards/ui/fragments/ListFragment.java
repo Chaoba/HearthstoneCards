@@ -1,6 +1,6 @@
 package cn.com.mushuichuan.heartstonecards.ui.fragments;
 
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +14,7 @@ import java.util.List;
 
 import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Info;
+import cn.com.mushuichuan.heartstonecards.ui.activitys.CardListActivity;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.FragmentMainListAdapter;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
 
@@ -75,12 +76,10 @@ public class ListFragment extends BaseFragment {
         @Override
         public void onClick(int poistion) {
             String item = adapter.getItem(poistion);
-            Fragment fragment = new CardListFragment();
-            Bundle data = new Bundle();
-            data.putInt(MENU_KEY, menuType);
-            data.putString(ARGU_KEY, item);
-            fragment.setArguments(data);
-            mActivity.showFragment(fragment, true);
+            Intent i = new Intent(getActivity(), CardListActivity.class);
+            i.putExtra(MENU_KEY, menuType);
+            i.putExtra(ARGU_KEY, item);
+            startActivity(i);
         }
     };
 }

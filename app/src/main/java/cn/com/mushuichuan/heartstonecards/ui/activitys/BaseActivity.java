@@ -1,8 +1,9 @@
-package cn.com.mushuichuan.heartstonecards.ui;
+package cn.com.mushuichuan.heartstonecards.ui.activitys;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.squareup.picasso.Picasso;
 
@@ -11,7 +12,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import cn.com.mushuichuan.heartstonecards.MainApp;
-import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.mvp.IView;
 import cn.com.mushuichuan.heartstonecards.mvp.Presenter;
 import cn.com.mushuichuan.heartstonecards.mvp.model.BaseCard;
@@ -26,15 +26,14 @@ public class BaseActivity extends AppCompatActivity implements IView {
     protected Presenter mPresenter;
     @Inject
     protected Picasso picasso;
-    ProgressDialog mProgressDialog;
+    protected ProgressBar mProgressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((MainApp) getApplication()).getmAppComponent().inject(this);
         mPresenter.setmView(this);
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage(getString(R.string.loading));
     }
 
     @Override
@@ -65,11 +64,15 @@ public class BaseActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showProgress() {
-        mProgressDialog.show();
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void hideProgress() {
-        mProgressDialog.dismiss();
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.GONE);
+        }
     }
 }

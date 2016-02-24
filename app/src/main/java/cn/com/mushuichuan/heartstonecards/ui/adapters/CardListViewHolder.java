@@ -45,6 +45,6 @@ public class CardListViewHolder extends RecyclerView.ViewHolder {
     public void bindItem(Card card) {
         classNameTextView.setText(card.playerClass);
         nameTextView.setText(card.name);
-        picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerCrop().into(classImg);
+        picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(classImg);
     }
 }

@@ -18,7 +18,6 @@ import cn.com.mushuichuan.heartstonecards.mvp.Presenter;
 import cn.com.mushuichuan.heartstonecards.mvp.model.BaseCard;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Info;
-import cn.com.mushuichuan.heartstonecards.ui.IActivity;
 import cn.com.mushuichuan.heartstonecards.util.CLogger;
 
 /**
@@ -42,12 +41,10 @@ public class BaseFragment extends Fragment implements IView {
     protected Picasso picasso;
     protected ProgressBar mProgressBar;
     protected RecyclerView mMainRecycler;
-    protected IActivity mActivity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActivity = (IActivity) getActivity();
         ((MainApp) getActivity().getApplication()).getmAppComponent().inject(this);
         Bundle arguments = getArguments();
         if (arguments != null) {
@@ -87,11 +84,15 @@ public class BaseFragment extends Fragment implements IView {
 
     @Override
     public void showProgress() {
-        mProgressBar.setVisibility(View.VISIBLE);
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void hideProgress() {
-        mProgressBar.setVisibility(View.VISIBLE);
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
     }
 }

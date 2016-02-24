@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 
 import cn.com.mushuichuan.heartstonecards.api.ApiModule;
 import cn.com.mushuichuan.heartstonecards.api.NetworkModule;
-import cn.com.mushuichuan.heartstonecards.ui.BaseActivity;
+import cn.com.mushuichuan.heartstonecards.ui.activitys.BaseActivity;
 import cn.com.mushuichuan.heartstonecards.ui.fragments.BaseFragment;
 import dagger.Component;
 

@@ -49,6 +49,7 @@ public class Presenter {
                         }
                     });
         } else {
+            mView.hideProgress();
             mView.onUpdate(mInfo);
         }
     }
