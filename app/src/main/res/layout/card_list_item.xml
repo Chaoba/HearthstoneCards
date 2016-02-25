@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/card_img"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/card_img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/List_item_text"
+                />
+
+            <TextView
+                android:id="@+id/menuType"
+                style="@style/List_sub_item_text"
+                />
+
+            <TextView
+                android:id="@+id/rarity"
+                style="@style/List_sub_item_text"
+                />
+
+            <TextView
+                android:id="@+id/faction"
+                style="@style/List_sub_item_text"
+                />
+
+            <TextView
+                android:id="@+id/race"
+                style="@style/List_sub_item_text"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

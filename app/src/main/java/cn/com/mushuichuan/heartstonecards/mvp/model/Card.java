@@ -39,4 +39,5 @@ public class Card extends BaseCard {
     public String artist;
     public String race;
     public List<BaseCard> mechanics;
+    public String menuType;
 }

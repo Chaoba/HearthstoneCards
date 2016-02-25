@@ -1,6 +1,7 @@
 package cn.com.mushuichuan.heartstonecards.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,23 +29,38 @@ import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
  * },
  */
 public class CardListViewHolder extends RecyclerView.ViewHolder {
-    private TextView classNameTextView;
-    private TextView nameTextView;
+    private TextView nameTextView, mRace, mFaction, mRarity, mMenutype;
     private ImageView classImg;
     private final Picasso picasso;
 
     public CardListViewHolder(View view, Picasso picasso) {
         super(view);
         this.picasso = picasso;
-        classNameTextView = (TextView) view.findViewById(R.id.class_name);
+        mMenutype = (TextView) view.findViewById(R.id.menuType);
         nameTextView = (TextView) view.findViewById(R.id.name);
-        classImg = (ImageView) view.findViewById(R.id.class_img);
+        mRace = (TextView) view.findViewById(R.id.race);
+        mFaction = (TextView) view.findViewById(R.id.faction);
+        mRarity = (TextView) view.findViewById(R.id.rarity);
+        classImg = (ImageView) view.findViewById(R.id.card_img);
     }
 
 
     public void bindItem(Card card) {
-        classNameTextView.setText(card.playerClass);
-        nameTextView.setText(card.name);
+        if (!TextUtils.isEmpty(card.menuType)) {
+            mMenutype.setText(card.menuType);
+        }
+        if (!TextUtils.isEmpty(card.name)) {
+            nameTextView.setText(card.name);
+        }
+        if (!TextUtils.isEmpty(card.faction)) {
+            mFaction.setText(card.faction);
+        }
+        if (!TextUtils.isEmpty(card.race)) {
+            mRace.setText(card.race);
+        }
+        if (!TextUtils.isEmpty(card.rarity)) {
+            mRarity.setText(card.rarity);
+        }
         picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(classImg);
     }
 }

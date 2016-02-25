@@ -92,7 +92,7 @@ public class BaseFragment extends Fragment implements IView {
     @Override
     public void hideProgress() {
         if (mProgressBar != null) {
-            mProgressBar.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.GONE);
         }
     }
 }

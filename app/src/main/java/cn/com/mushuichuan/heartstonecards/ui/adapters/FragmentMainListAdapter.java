@@ -34,7 +34,7 @@ public class FragmentMainListAdapter extends RecyclerView.Adapter<FragmentMainVi
 
     @Override
     public FragmentMainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new FragmentMainViewHolder(layoutInflater.inflate(R.layout.class_list_item, null), mListener);
+        return new FragmentMainViewHolder(layoutInflater.inflate(R.layout.fragment_list_item, parent, false), mListener);
     }
 
     @Override

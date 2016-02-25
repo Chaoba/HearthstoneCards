@@ -37,7 +37,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListViewHolder> {
 
     @Override
     public CardListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new CardListViewHolder(layoutInflater.inflate(R.layout.class_list_item, null), picasso);
+        return new CardListViewHolder(layoutInflater.inflate(R.layout.card_list_item, null), picasso);
     }
 
     @Override
