@@ -1,5 +1,6 @@
 package cn.com.mushuichuan.heartstonecards.ui.activitys;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,8 @@ public class BaseActivity extends AppCompatActivity implements IView {
     protected Presenter mPresenter;
     @Inject
     protected Picasso picasso;
+    @Inject
+    Context mContext;
     protected ProgressBar mProgressBar;
 
 

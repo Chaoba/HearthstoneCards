@@ -28,20 +28,23 @@ import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
  * "locale": "zhCN"
  * },
  */
-public class CardListViewHolder extends RecyclerView.ViewHolder {
+public class CardListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    private final RecylcerViewClickListener mListener;
     private TextView nameTextView, mRace, mFaction, mRarity, mMenutype;
     private ImageView classImg;
     private final Picasso picasso;
 
-    public CardListViewHolder(View view, Picasso picasso) {
+    public CardListViewHolder(View view, Picasso picasso, RecylcerViewClickListener listener) {
         super(view);
         this.picasso = picasso;
+        this.mListener = listener;
         mMenutype = (TextView) view.findViewById(R.id.menuType);
         nameTextView = (TextView) view.findViewById(R.id.name);
         mRace = (TextView) view.findViewById(R.id.race);
         mFaction = (TextView) view.findViewById(R.id.faction);
         mRarity = (TextView) view.findViewById(R.id.rarity);
         classImg = (ImageView) view.findViewById(R.id.card_img);
+        view.setOnClickListener(this);
     }
 
 
@@ -62,5 +65,10 @@ public class CardListViewHolder extends RecyclerView.ViewHolder {
             mRarity.setText(card.rarity);
         }
         picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(classImg);
+    }
+
+    @Override
+    public void onClick(View v) {
+        mListener.onClick(getAdapterPosition());
     }
 }

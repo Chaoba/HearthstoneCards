@@ -1,5 +1,6 @@
 package cn.com.mushuichuan.heartstonecards.ui.activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import java.util.List;
 import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.CardListAdapter;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
 import cn.com.mushuichuan.heartstonecards.ui.fragments.BaseFragment;
 
 public class CardListActivity extends BaseActivity {
@@ -69,8 +71,18 @@ public class CardListActivity extends BaseActivity {
     @Override
     public void onUpdate(List<Card> card) {
         super.onUpdate(card);
-        adapter = new CardListAdapter(picasso, getLayoutInflater());
+        adapter = new CardListAdapter(picasso, getLayoutInflater(), mListener);
         adapter.setData(card);
         mMainRecycler.setAdapter(adapter);
     }
+
+    RecylcerViewClickListener mListener = new RecylcerViewClickListener() {
+        @Override
+        public void onClick(int poistion) {
+            String name = adapter.getCardName(poistion);
+            Intent i = new Intent(mContext, DetailActivity.class);
+            i.putExtra(DetailActivity.EXTRA_NAME, name);
+            startActivity(i);
+        }
+    };
 }

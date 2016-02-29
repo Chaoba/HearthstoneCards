@@ -230,12 +230,13 @@ public class Presenter {
     public void getSingleCard(String name) {
         mView.showProgress();
 
-        Observable<Card> observable = mIApi.getSingleCard(name, getLocal());
+        Observable<List<Card>> observable = mIApi.getSingleCard(name, getLocal());
         observable.subscribeOn(Schedulers.io())
-                .subscribe(new SelfDefineSubscriber<Card>() {
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SelfDefineSubscriber<List<Card>>() {
                     @Override
-                    public void onNext(Card cards) {
-                        mView.onUpdate(cards);
+                    public void onNext(List<Card> cards) {
+                        mView.onUpdate(cards.get(0));
                         mView.hideProgress();
 
                     }

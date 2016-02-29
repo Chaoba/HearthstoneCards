@@ -22,12 +22,14 @@ import static java.util.Collections.unmodifiableList;
 public class CardListAdapter extends RecyclerView.Adapter<CardListViewHolder> {
     private final Picasso picasso;
     private final LayoutInflater layoutInflater;
+    private final RecylcerViewClickListener mListener;
     private List<Card> items = emptyList();
 
     @Inject
-    public CardListAdapter(Picasso picasso, LayoutInflater layoutInflater) {
+    public CardListAdapter(Picasso picasso, LayoutInflater layoutInflater, RecylcerViewClickListener mListener) {
         this.picasso = picasso;
         this.layoutInflater = layoutInflater;
+        this.mListener = mListener;
     }
 
     public void setData(List<Card> items) {
@@ -37,7 +39,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListViewHolder> {
 
     @Override
     public CardListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new CardListViewHolder(layoutInflater.inflate(R.layout.card_list_item, null), picasso);
+        return new CardListViewHolder(layoutInflater.inflate(R.layout.card_list_item, null), picasso, mListener);
     }
 
     @Override
@@ -48,5 +50,13 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListViewHolder> {
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    public String getCardName(int poistion) {
+        Card card = items.get(poistion);
+        if (card != null) {
+            return card.name;
+        }
+        return null;
     }
 }

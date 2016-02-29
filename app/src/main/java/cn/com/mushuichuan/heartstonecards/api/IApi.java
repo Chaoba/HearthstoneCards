@@ -42,7 +42,7 @@ public interface IApi {
     Observable<List<Card>> getCardByType(@Path("menuType") String classes, @Query("locale") String locale);
 
     @GET("cards/{name}")
-    Observable<Card> getSingleCard(@Path("name") String classes, @Query("locale") String locale);
+    Observable<List<Card>> getSingleCard(@Path("name") String classes, @Query("locale") String locale);
 
     @GET("cards/classes/cardbacks")
     Observable<List<CardBack>> getCardsBacks(@Query("locale") String locale);
