@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -63,7 +64,8 @@ public class BaseFragment extends Fragment implements IView {
 
     @Override
     public void onError(String error) {
-
+        Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+        hideProgress();
     }
 
     @Override

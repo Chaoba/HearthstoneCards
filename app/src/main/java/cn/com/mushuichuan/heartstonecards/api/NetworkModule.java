@@ -2,6 +2,8 @@ package cn.com.mushuichuan.heartstonecards.api;
 
 import android.support.annotation.NonNull;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Singleton;
 
 import cn.com.mushuichuan.heartstonecards.BuildConfig;
@@ -28,6 +30,8 @@ public class NetworkModule {
         OkHttpClient newClient = okHttpClient.newBuilder()
                 .addInterceptor(httpLoggingInterceptor)
                 .addInterceptor(mashapeKeyInterceptor)
+                .connectTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
                 .build();
         return newClient;
     }
