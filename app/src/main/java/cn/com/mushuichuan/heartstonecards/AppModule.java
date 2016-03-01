@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.Cache;
 
 /**
  * Created by Liyanshun on 2016/2/17.
@@ -43,5 +44,10 @@ public class AppModule {
                 .downloader(new OkHttpDownloader(new OkHttpClient()))
                 .loggingEnabled(BuildConfig.DEBUG)
                 .build();
+    }
+
+    @Provides
+    public Cache provideCache() {
+        return new Cache(mContext.getCacheDir(), 10240*1024);
     }
 }
