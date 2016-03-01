@@ -7,16 +7,16 @@
     <string name="menu_qualities">Qualities</string>
     <string name="menu_races">Races</string>
 
-    <string name="card_set">CardSet\n%1$s</string>
-    <string name="menu_type">MenuType\n%1$s</string>
-    <string name="rarity">Rarity\n%1$s</string>
-    <string name="cost">Cost\n%1$s</string>
-    <string name="attack">Attack\n%1$s</string>
-    <string name="health">Health\n%1$s</string>
-    <string name="text">CardSet\n%1$s</string>
-    <string name="flavor">CardSet\n%1$s</string>
-    <string name="collectible">Collectible\n%1$s</string>
-    <string name="race">Race\n%1$s</string>
+    <string name="card_set"><![CDATA[ <big>CardSet</big> ]]>:\t%1$s</string>
+    <string name="menu_type"><![CDATA[ <big>MenuType</big> ]]>:\t%1$s</string>
+    <string name="rarity"><![CDATA[ <big>Rarity</big> ]]>:\t%1$s</string>
+    <string name="cost"><![CDATA[ <big>Cost</big> ]]>:\t%1$s</string>
+    <string name="attack"><![CDATA[ <big>Attack</big> ]]>:\t%1$s</string>
+    <string name="health"><![CDATA[ <big>Health</big> ]]>:\t%1$s</string>
+    <string name="text"><![CDATA[ <big>Text</big> ]]>:\t%1$s</string>
+    <string name="flavor"><![CDATA[ <big>Flavor</big> ]]>:\t%1$s</string>
+    <string name="collectible"><![CDATA[ <big>Collectible</big> ]]>:\t%1$s</string>
+    <string name="race"><![CDATA[ <big>Race</big> ]]>:\t%1$s</string>
 
     <string name="title_activity_main">MainActivity</string>
 

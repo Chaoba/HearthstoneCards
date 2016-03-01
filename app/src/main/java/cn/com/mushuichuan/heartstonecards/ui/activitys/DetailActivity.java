@@ -2,6 +2,7 @@ package cn.com.mushuichuan.heartstonecards.ui.activitys;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -72,16 +73,56 @@ public class DetailActivity extends BaseActivity {
     public void onUpdate(BaseCard card) {
         Card c = (Card) card;
         picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(mImg);
-        mAttack.setText(getString(R.string.attack, c.attack));
-        mCardSet.setText(getString(R.string.card_set, c.cardSet));
-        mCollectible.setText(getString(R.string.collectible, c.collectible));
-        mCost.setText(getString(R.string.cost, c.cost));
-        mFlavour.setText(getString(R.string.flavor, c.flavor));
-        mHealth.setText(getString(R.string.health, c.health));
-        mMenutype.setText(getString(R.string.menu_type, c.menuType));
-        mRarity.setText(getString(R.string.rarity, c.rarity));
-        mRace.setText(getString(R.string.rarity, c.race));
-        mText.setText(getString(R.string.text, c.text));
+        if (c.attack != null) {
+            mAttack.setText(Html.fromHtml(getString(R.string.attack, c.attack)));
+        } else {
+            mAttack.setVisibility(View.GONE);
+        }
+        if (c.cardSet != null) {
+            mCardSet.setText(Html.fromHtml(getString(R.string.card_set, c.cardSet)));
+        } else {
+            mCardSet.setVisibility(View.GONE);
+        }
+        if (c.collectible != null) {
+            mCollectible.setText(Html.fromHtml(getString(R.string.collectible, c.collectible)));
+        } else {
+            mCollectible.setVisibility(View.GONE);
+        }
+        if (c.cost != null) {
+            mCost.setText(Html.fromHtml(getString(R.string.cost, c.cost)));
+        } else {
+            mCost.setVisibility(View.GONE);
+        }
+        if (c.flavor != null) {
+            mFlavour.setText(Html.fromHtml(getString(R.string.flavor, c.flavor)));
+        } else {
+            mFlavour.setVisibility(View.GONE);
+        }
+        if (c.health != null) {
+            mHealth.setText(Html.fromHtml(getString(R.string.health, c.health)));
+        } else {
+            mHealth.setVisibility(View.GONE);
+        }
+        if (c.menuType != null) {
+            mMenutype.setText(Html.fromHtml(getString(R.string.menu_type, c.menuType)));
+        } else {
+            mMenutype.setVisibility(View.GONE);
+        }
+        if (c.rarity != null) {
+            mRarity.setText(Html.fromHtml(getString(R.string.rarity, c.rarity)));
+        } else {
+            mRarity.setVisibility(View.GONE);
+        }
+        if (c.race != null) {
+            mRace.setText(Html.fromHtml(getString(R.string.rarity, c.race)));
+        } else {
+            mRace.setVisibility(View.GONE);
+        }
+        if (c.text != null) {
+            mText.setText(Html.fromHtml(getString(R.string.text, c.text)));
+        } else {
+            mText.setVisibility(View.GONE);
+        }
 
     }
 }

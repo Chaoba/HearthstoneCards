@@ -17,15 +17,15 @@
             android:id="@+id/activity_avenger_detail_colltoolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="20dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             >
 
             <ImageView
                 android:id="@+id/card_img"
+                android:padding="25dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"/>
+                android:layout_height="400dp"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -47,14 +47,14 @@
         <RelativeLayout
             android:id="@+id/activity_avenger_detail_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             >
 
             <LinearLayout
                 android:id="@+id/first_row"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/detail_cost"
@@ -67,14 +67,6 @@
                 <TextView
                     android:id="@+id/detail_health"
                     style="@style/Detail_item_text"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/second_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/first_row"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/detail_cardset"
@@ -87,14 +79,6 @@
                 <TextView
                     android:id="@+id/detail_rarity"
                     style="@style/Detail_item_text"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/third_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/second_row"
-                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/detail_collectible"
@@ -103,17 +87,15 @@
                 <TextView
                     android:id="@+id/detail_race"
                     style="@style/Detail_item_text"/>
+
+                <TextView
+                    android:id="@+id/detail_text"
+                    style="@style/Detail_item_long_text"/>
+
+                <TextView
+                    android:id="@+id/detail_flavour"
+                    style="@style/Detail_item_long_text"/>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/detail_text"
-                style="@style/Detail_item_long_text"
-                android:layout_below="@+id/third_row"/>
-
-            <TextView
-                android:id="@+id/detail_flavour"
-                style="@style/Detail_item_long_text"
-                android:layout_below="@+id/detail_text"/>
 
             <ProgressBar
                 android:id="@+id/progress"
