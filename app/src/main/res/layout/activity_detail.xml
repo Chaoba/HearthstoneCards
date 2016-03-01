@@ -13,15 +13,116 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/activity_avenger_detail_colltoolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            android:layout_height="match_parent"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="20dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            >
+
+            <ImageView
+                android:id="@+id/card_img"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_detail"/>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/activity_detail_comics_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
+        <RelativeLayout
+            android:id="@+id/activity_avenger_detail_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:id="@+id/first_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/detail_cost"
+                    style="@style/Detail_item_text"/>
+
+                <TextView
+                    android:id="@+id/detail_attack"
+                    style="@style/Detail_item_text"/>
+
+                <TextView
+                    android:id="@+id/detail_health"
+                    style="@style/Detail_item_text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/second_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/first_row"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/detail_cardset"
+                    style="@style/Detail_item_text"/>
+
+                <TextView
+                    android:id="@+id/detail_menutype"
+                    style="@style/Detail_item_text"/>
+
+                <TextView
+                    android:id="@+id/detail_rarity"
+                    style="@style/Detail_item_text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/third_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/second_row"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/detail_collectible"
+                    style="@style/Detail_item_text"/>
+
+                <TextView
+                    android:id="@+id/detail_race"
+                    style="@style/Detail_item_text"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detail_text"
+                style="@style/Detail_item_long_text"
+                android:layout_below="@+id/third_row"/>
+
+            <TextView
+                android:id="@+id/detail_flavour"
+                style="@style/Detail_item_long_text"
+                android:layout_below="@+id/detail_text"/>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

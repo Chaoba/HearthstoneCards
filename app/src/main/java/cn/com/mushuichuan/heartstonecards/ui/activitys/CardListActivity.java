@@ -80,8 +80,10 @@ public class CardListActivity extends BaseActivity {
         @Override
         public void onClick(int poistion) {
             String name = adapter.getCardName(poistion);
+            String id = adapter.getCardId(poistion);
             Intent i = new Intent(mContext, DetailActivity.class);
             i.putExtra(DetailActivity.EXTRA_NAME, name);
+            i.putExtra(DetailActivity.EXTRA_ID, id);
             startActivity(i);
         }
     };

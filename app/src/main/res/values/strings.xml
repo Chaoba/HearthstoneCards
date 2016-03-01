@@ -7,6 +7,16 @@
     <string name="menu_qualities">Qualities</string>
     <string name="menu_races">Races</string>
 
+    <string name="card_set">CardSet\n%1$s</string>
+    <string name="menu_type">MenuType\n%1$s</string>
+    <string name="rarity">Rarity\n%1$s</string>
+    <string name="cost">Cost\n%1$s</string>
+    <string name="attack">Attack\n%1$s</string>
+    <string name="health">Health\n%1$s</string>
+    <string name="text">CardSet\n%1$s</string>
+    <string name="flavor">CardSet\n%1$s</string>
+    <string name="collectible">Collectible\n%1$s</string>
+    <string name="race">Race\n%1$s</string>
 
     <string name="title_activity_main">MainActivity</string>
 
