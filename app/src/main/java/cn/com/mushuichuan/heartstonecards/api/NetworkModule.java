@@ -9,6 +9,7 @@ import javax.inject.Singleton;
 import cn.com.mushuichuan.heartstonecards.BuildConfig;
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -20,7 +21,7 @@ public class NetworkModule {
     @Provides
     @NonNull
     @Singleton
-    public OkHttpClient provideOkHttpClient(MashapeKeyInterceptor mashapeKeyInterceptor) {
+    public OkHttpClient provideOkHttpClient(Cache cache, MashapeKeyInterceptor mashapeKeyInterceptor) {
 
         OkHttpClient okHttpClient = new OkHttpClient();
 
@@ -30,9 +31,12 @@ public class NetworkModule {
         OkHttpClient newClient = okHttpClient.newBuilder()
                 .addInterceptor(httpLoggingInterceptor)
                 .addInterceptor(mashapeKeyInterceptor)
+                .addInterceptor(new CacheInterceptor())
+                .cache(cache)
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
                 .build();
+
         return newClient;
     }
 }

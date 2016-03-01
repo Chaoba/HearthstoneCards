@@ -34,7 +34,7 @@ public class Presenter {
     }
 
     public void getInfo() {
-        if (mInfo == null) {
+//        if (mInfo == null) {
             mView.showProgress();
             Observable<Info> observable = mIApi.getInfo();
             observable.subscribeOn(Schedulers.io())
@@ -48,10 +48,10 @@ public class Presenter {
 
                         }
                     });
-        } else {
-            mView.hideProgress();
-            mView.onUpdate(mInfo);
-        }
+//        } else {
+//            mView.hideProgress();
+//            mView.onUpdate(mInfo);
+//        }
     }
 
     public void getAllCards() {

@@ -1,5 +1,6 @@
 package cn.com.mushuichuan.heartstonecards.ui.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -64,7 +65,10 @@ public class BaseFragment extends Fragment implements IView {
 
     @Override
     public void onError(String error) {
-        Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+        Activity activity = getActivity();
+        if (activity != null) {
+            Toast.makeText(activity, error, Toast.LENGTH_LONG).show();
+        }
         hideProgress();
     }
 
