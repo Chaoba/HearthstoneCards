@@ -31,7 +31,7 @@ public class NetworkModule {
         OkHttpClient newClient = okHttpClient.newBuilder()
                 .addInterceptor(httpLoggingInterceptor)
                 .addInterceptor(mashapeKeyInterceptor)
-                .addInterceptor(new CacheInterceptor())
+                .addNetworkInterceptor(new CacheInterceptor())
                 .cache(cache)
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
