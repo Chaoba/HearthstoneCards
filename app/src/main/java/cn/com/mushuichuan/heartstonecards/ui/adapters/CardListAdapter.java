@@ -12,6 +12,7 @@ import javax.inject.Inject;
 
 import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.viewholder.CardListViewHolder;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;

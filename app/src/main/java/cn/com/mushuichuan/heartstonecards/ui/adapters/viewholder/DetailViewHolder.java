@@ -1,4 +1,4 @@
-package cn.com.mushuichuan.heartstonecards.ui.adapters;
+package cn.com.mushuichuan.heartstonecards.ui.adapters.viewholder;
 
 import android.text.Spanned;
 import android.view.View;

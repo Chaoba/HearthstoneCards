@@ -82,7 +82,7 @@ public class CardListActivity extends BaseActivity {
         public void onClick(View v, int poistion) {
             Card card = adapter.getItem(poistion);
             Intent i = new Intent(mContext, DetailActivity.class);
-            i.putExtra(DetailActivity.EXTRA_NAME, card);
+            i.putExtra(DetailActivity.EXTRA_CARD, card);
             ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(CardListActivity.this, v, card.cardId);
             startActivity(i, activityOptions.toBundle());
         }

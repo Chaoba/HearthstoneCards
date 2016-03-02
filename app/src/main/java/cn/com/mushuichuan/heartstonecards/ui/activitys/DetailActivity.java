@@ -14,15 +14,12 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.com.mushuichuan.heartstonecards.R;
-import cn.com.mushuichuan.heartstonecards.mvp.model.BaseCard;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
-import cn.com.mushuichuan.heartstonecards.ui.adapters.DetailViewHolder;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.viewholder.DetailViewHolder;
 import uk.co.ribot.easyadapter.EasyRecyclerAdapter;
 
 public class DetailActivity extends BaseActivity {
-    public static final String EXTRA_NAME = "EXTRA_NAME";
-    public static final String EXTRA_ID = "EXTRA_ID";
-    private String mName, mId;
+    public static final String EXTRA_CARD = "EXTRA_CARD";
     @Bind(R.id.card_img)
     ImageView mImg;
     @Bind(R.id.fragment_main_recycler)
@@ -45,18 +42,16 @@ public class DetailActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-        Card card = getIntent().getParcelableExtra(EXTRA_NAME);
+        Card card = getIntent().getParcelableExtra(EXTRA_CARD);
         mImg.setTransitionName(card.cardId);
         mList.setLayoutManager(new LinearLayoutManager(this));
 
-        onUpdate(card);
+        setData(card);
     }
 
-    @Override
-    public void onUpdate(BaseCard card) {
-        Card c = (Card) card;
-        setTitle(card.name);
-        picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(mImg);
+    private void setData(Card c) {
+        setTitle(c.name);
+        picasso.load(c.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(mImg);
         ArrayList<Spanned> list = new ArrayList<>();
         if (c.attack != null) {
             list.add(Html.fromHtml(getString(R.string.attack, c.attack)));

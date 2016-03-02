@@ -9,6 +9,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import cn.com.mushuichuan.heartstonecards.R;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.viewholder.FragmentMainViewHolder;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;
