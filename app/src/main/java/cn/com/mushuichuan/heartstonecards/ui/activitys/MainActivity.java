@@ -113,6 +113,5 @@ public class MainActivity extends BaseActivity
         FragmentTransaction addTransaction = manager.beginTransaction();
         addTransaction.replace(R.id.body, f);
         addTransaction.commit();
-        mPresenter.getInfo();
     }
 }

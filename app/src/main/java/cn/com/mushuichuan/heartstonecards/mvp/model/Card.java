@@ -38,6 +38,8 @@ public class Card extends BaseCard {
     public String flavor;
     public String artist;
     public String race;
+    public String howToGet;
+    public String howToGetGold;
     public List<BaseCard> mechanics;
     public String menuType;
 }

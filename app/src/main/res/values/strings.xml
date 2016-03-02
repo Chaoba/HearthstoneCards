@@ -17,6 +17,8 @@
     <string name="flavor"><![CDATA[ <big>Flavor</big> ]]>:\t%1$s</string>
     <string name="collectible"><![CDATA[ <big>Collectible</big> ]]>:\t%1$s</string>
     <string name="race"><![CDATA[ <big>Race</big> ]]>:\t%1$s</string>
+    <string name="howtoget"><![CDATA[ <big>How to get</big> ]]>:\t%1$s</string>
+    <string name="howtogetgold"><![CDATA[ <big>How to get gold</big> ]]>:\t%1$s</string>
 
     <string name="title_activity_main">MainActivity</string>
 
