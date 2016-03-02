@@ -9,46 +9,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/card_img"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"/>
-
-        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/card_img"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"/>
 
-            <TextView
-                android:id="@+id/name"
-                style="@style/List_item_text"
-                />
-
-            <TextView
-                android:id="@+id/menuType"
-                style="@style/List_sub_item_text"
-                />
-
-            <TextView
-                android:id="@+id/rarity"
-                style="@style/List_sub_item_text"
-                />
-
-            <TextView
-                android:id="@+id/faction"
-                style="@style/List_sub_item_text"
-                />
-
-            <TextView
-                android:id="@+id/race"
-                style="@style/List_sub_item_text"
-                />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/name"
+            style="@style/Grid_item_text"
+            android:layout_alignParentBottom="true"
+            />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

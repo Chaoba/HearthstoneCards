@@ -6,10 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -47,20 +45,17 @@ public class DetailActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-        mProgressBar = (ProgressBar) findViewById(R.id.progress);
-
-        mName = getIntent().getStringExtra(EXTRA_NAME);
-        mId = getIntent().getStringExtra(EXTRA_ID);
-        setTitle(mName);
-        if (!TextUtils.isEmpty(mId)) {
-            mPresenter.getSingleCard(mId);
-        }
+        Card card = getIntent().getParcelableExtra(EXTRA_NAME);
+        mImg.setTransitionName(card.cardId);
         mList.setLayoutManager(new LinearLayoutManager(this));
+
+        onUpdate(card);
     }
 
     @Override
     public void onUpdate(BaseCard card) {
         Card c = (Card) card;
+        setTitle(card.name);
         picasso.load(card.img).fit().placeholder(R.mipmap.card_back_default).centerInside().into(mImg);
         ArrayList<Spanned> list = new ArrayList<>();
         if (c.attack != null) {

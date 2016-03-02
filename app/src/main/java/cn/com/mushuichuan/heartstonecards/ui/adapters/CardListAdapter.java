@@ -52,19 +52,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListViewHolder> {
         return items.size();
     }
 
-    public String getCardName(int poistion) {
-        Card card = items.get(poistion);
-        if (card != null) {
-            return card.name;
-        }
-        return null;
-    }
-
-    public String getCardId(int poistion) {
-        Card card = items.get(poistion);
-        if (card != null) {
-            return card.cardId;
-        }
-        return null;
+    public Card getItem(int poistion) {
+        return items.get(poistion);
     }
 }

@@ -54,7 +54,7 @@ public class ListFragment extends BaseFragment {
 
     RecylcerViewClickListener mListener = new RecylcerViewClickListener() {
         @Override
-        public void onClick(int poistion) {
+        public void onClick(View v, int poistion) {
             String item = adapter.getItem(poistion);
             Intent i = new Intent(getActivity(), CardListActivity.class);
             i.putExtra(MENU_KEY, menuType);

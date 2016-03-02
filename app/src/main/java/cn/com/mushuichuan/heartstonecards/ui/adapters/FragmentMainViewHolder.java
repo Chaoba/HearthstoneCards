@@ -2,7 +2,6 @@ package cn.com.mushuichuan.heartstonecards.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.com.mushuichuan.heartstonecards.R;
@@ -28,6 +27,6 @@ public class FragmentMainViewHolder extends RecyclerView.ViewHolder implements V
 
     @Override
     public void onClick(View v) {
-        mListener.onClick(getAdapterPosition());
+        mListener.onClick(v, getAdapterPosition());
     }
 }

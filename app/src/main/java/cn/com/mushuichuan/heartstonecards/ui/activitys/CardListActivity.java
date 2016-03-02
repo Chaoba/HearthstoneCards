@@ -1,8 +1,9 @@
 package cn.com.mushuichuan.heartstonecards.ui.activitys;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -37,7 +38,7 @@ public class CardListActivity extends BaseActivity {
             }
         });
         mMainRecycler = (RecyclerView) findViewById(R.id.fragment_main_recycler);
-        mMainRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mMainRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         mProgressBar = (ProgressBar) findViewById(R.id.progress);
         menuType = getIntent().getIntExtra(BaseFragment.MENU_KEY, 0);
         argu = getIntent().getStringExtra(BaseFragment.ARGU_KEY);
@@ -78,13 +79,12 @@ public class CardListActivity extends BaseActivity {
 
     RecylcerViewClickListener mListener = new RecylcerViewClickListener() {
         @Override
-        public void onClick(int poistion) {
-            String name = adapter.getCardName(poistion);
-            String id = adapter.getCardId(poistion);
+        public void onClick(View v, int poistion) {
+            Card card = adapter.getItem(poistion);
             Intent i = new Intent(mContext, DetailActivity.class);
-            i.putExtra(DetailActivity.EXTRA_NAME, name);
-            i.putExtra(DetailActivity.EXTRA_ID, id);
-            startActivity(i);
+            i.putExtra(DetailActivity.EXTRA_NAME, card);
+            ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(CardListActivity.this, v, card.cardId);
+            startActivity(i, activityOptions.toBundle());
         }
     };
 }
