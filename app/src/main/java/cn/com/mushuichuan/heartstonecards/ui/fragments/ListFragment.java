@@ -8,12 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 
 import java.util.List;
 
 import cn.com.mushuichuan.heartstonecards.R;
-import cn.com.mushuichuan.heartstonecards.mvp.model.Info;
 import cn.com.mushuichuan.heartstonecards.ui.activitys.CardListActivity;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.FragmentMainListAdapter;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
@@ -25,6 +23,7 @@ import static java.util.Collections.emptyList;
  */
 public class ListFragment extends BaseFragment {
     private FragmentMainListAdapter adapter;
+    private List<String> list = emptyList();
 
 
     @Nullable
@@ -38,38 +37,19 @@ public class ListFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         mMainRecycler = (RecyclerView) view.findViewById(R.id.fragment_main_recycler);
         mMainRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
-        mPresenter.getInfo();
+        adapter = new FragmentMainListAdapter(getActivity().getLayoutInflater(), mListener);
+        if (list.size() > 0) {
+            adapter.setData(list);
+        }
+        mMainRecycler.setAdapter(adapter);
     }
 
-    @Override
-    public void onUpdate(Info info) {
-        super.onUpdate(info);
-        List<String> list = emptyList();
-        switch (menuType) {
-            case KEY_CLASSES:
-                list = info.classes;
-                break;
-            case KEY_FACTIONS:
-                list = info.factions;
-                break;
-            case KEY_QUALITIES:
-                list = info.qualities;
-                break;
-            case KEY_RACES:
-                list = info.races;
-                break;
-            case KEY_SETS:
-                list = info.sets;
-                break;
-            case KEY_TYPES:
-                list = info.types;
-                break;
+    public void setData(List<String> l) {
+        list = l;
+        if (adapter != null) {
+            adapter.setData(list);
         }
 
-        adapter = new FragmentMainListAdapter(getActivity().getLayoutInflater(), mListener);
-        adapter.setData(list);
-        mMainRecycler.setAdapter(adapter);
     }
 
     RecylcerViewClickListener mListener = new RecylcerViewClickListener() {

@@ -1,11 +1,9 @@
 package cn.com.mushuichuan.heartstonecards.ui.fragments;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -41,7 +39,6 @@ public class BaseFragment extends Fragment implements IView {
     protected Presenter mPresenter;
     @Inject
     protected Picasso picasso;
-    protected ProgressBar mProgressBar;
     protected RecyclerView mMainRecycler;
 
     @Override
@@ -90,15 +87,9 @@ public class BaseFragment extends Fragment implements IView {
 
     @Override
     public void showProgress() {
-        if (mProgressBar != null) {
-            mProgressBar.setVisibility(View.VISIBLE);
-        }
     }
 
     @Override
     public void hideProgress() {
-        if (mProgressBar != null) {
-            mProgressBar.setVisibility(View.GONE);
-        }
     }
 }
