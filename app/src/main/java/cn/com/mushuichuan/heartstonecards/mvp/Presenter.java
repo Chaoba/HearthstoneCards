@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import cn.com.mushuichuan.heartstonecards.api.IApi;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
-import cn.com.mushuichuan.heartstonecards.mvp.model.CardBack;
+import cn.com.mushuichuan.heartstonecards.mvp.model.Cardback;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Info;
 import cn.com.mushuichuan.heartstonecards.util.CLogger;
 import cn.com.mushuichuan.heartstonecards.util.Util;
@@ -71,12 +71,12 @@ public class Presenter {
 
     public void getCardBacks() {
         mView.showProgress();
-        Observable<List<CardBack>> observable = mIApi.getCardsBacks(getLocal());
+        Observable<List<Cardback>> observable = mIApi.getCardsBacks(getLocal());
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SelfDefineSubscriber<List<CardBack>>() {
+                .subscribe(new SelfDefineSubscriber<List<Cardback>>() {
                     @Override
-                    public void onNext(List<CardBack> cards) {
+                    public void onNext(List<Cardback> cards) {
                         mView.hideProgress();
 
                     }

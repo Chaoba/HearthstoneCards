@@ -3,7 +3,7 @@ package cn.com.mushuichuan.heartstonecards.api;
 import java.util.List;
 
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
-import cn.com.mushuichuan.heartstonecards.mvp.model.CardBack;
+import cn.com.mushuichuan.heartstonecards.mvp.model.Cardback;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Info;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -45,6 +45,6 @@ public interface IApi {
     Observable<List<Card>> getSingleCard(@Path("name") String classes, @Query("locale") String locale);
 
     @GET("cards/classes/cardbacks")
-    Observable<List<CardBack>> getCardsBacks(@Query("locale") String locale);
+    Observable<List<Cardback>> getCardsBacks(@Query("locale") String locale);
 
 }

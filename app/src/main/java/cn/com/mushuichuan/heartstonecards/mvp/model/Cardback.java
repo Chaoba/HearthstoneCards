@@ -16,7 +16,7 @@ package cn.com.mushuichuan.heartstonecards.mvp.model;
  * "locale": "enUS"
  * },
  */
-public class CardBack extends BaseCard {
+public class Cardback extends BaseCard {
     public String cardBackId;
     public String name;
     public String description;
