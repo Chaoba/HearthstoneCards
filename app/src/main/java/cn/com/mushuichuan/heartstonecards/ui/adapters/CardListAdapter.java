@@ -23,11 +23,11 @@ import static java.util.Collections.unmodifiableList;
 public class CardListAdapter extends RecyclerView.Adapter<CardListViewHolder> {
     private final Picasso picasso;
     private final LayoutInflater layoutInflater;
-    private final RecylcerViewClickListener mListener;
+    private final RecyclerViewClickListener mListener;
     private List<Card> items = emptyList();
 
     @Inject
-    public CardListAdapter(Picasso picasso, LayoutInflater layoutInflater, RecylcerViewClickListener mListener) {
+    public CardListAdapter(Picasso picasso, LayoutInflater layoutInflater, RecyclerViewClickListener mListener) {
         this.picasso = picasso;
         this.layoutInflater = layoutInflater;
         this.mListener = mListener;

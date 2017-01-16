@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso;
 
 import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
-import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.RecyclerViewClickListener;
 
 /**
  * Created by Liyanshun on 2016/2/19.
@@ -30,12 +30,12 @@ import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
  * },
  */
 public class CardListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private final RecylcerViewClickListener mListener;
+    private final RecyclerViewClickListener mListener;
     private TextView nameTextView;
     private ImageView classImg;
     private final Picasso picasso;
 
-    public CardListViewHolder(View view, Picasso picasso, RecylcerViewClickListener listener) {
+    public CardListViewHolder(View view, Picasso picasso, RecyclerViewClickListener listener) {
         super(view);
         this.picasso = picasso;
         this.mListener = listener;

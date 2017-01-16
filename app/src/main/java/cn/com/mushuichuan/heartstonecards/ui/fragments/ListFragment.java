@@ -14,7 +14,7 @@ import java.util.List;
 import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.ui.activitys.CardListActivity;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.FragmentMainListAdapter;
-import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.RecyclerViewClickListener;
 
 import static java.util.Collections.emptyList;
 
@@ -52,7 +52,7 @@ public class ListFragment extends BaseFragment {
 
     }
 
-    RecylcerViewClickListener mListener = new RecylcerViewClickListener() {
+    RecyclerViewClickListener mListener = new RecyclerViewClickListener() {
         @Override
         public void onClick(View v, int poistion) {
             String item = adapter.getItem(poistion);

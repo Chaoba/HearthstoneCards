@@ -14,7 +14,7 @@ import java.util.List;
 import cn.com.mushuichuan.heartstonecards.R;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
 import cn.com.mushuichuan.heartstonecards.ui.adapters.CardListAdapter;
-import cn.com.mushuichuan.heartstonecards.ui.adapters.RecylcerViewClickListener;
+import cn.com.mushuichuan.heartstonecards.ui.adapters.RecyclerViewClickListener;
 import cn.com.mushuichuan.heartstonecards.ui.fragments.BaseFragment;
 
 public class CardListActivity extends BaseActivity {
@@ -77,7 +77,7 @@ public class CardListActivity extends BaseActivity {
         mMainRecycler.setAdapter(adapter);
     }
 
-    RecylcerViewClickListener mListener = new RecylcerViewClickListener() {
+    RecyclerViewClickListener mListener = new RecyclerViewClickListener() {
         @Override
         public void onClick(View v, int poistion) {
             Card card = adapter.getItem(poistion);

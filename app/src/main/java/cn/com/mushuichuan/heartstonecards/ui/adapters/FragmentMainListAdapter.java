@@ -20,10 +20,10 @@ import static java.util.Collections.unmodifiableList;
 public class FragmentMainListAdapter extends RecyclerView.Adapter<FragmentMainViewHolder> {
     private final LayoutInflater layoutInflater;
     private List<String> items = emptyList();
-    private RecylcerViewClickListener mListener;
+    private RecyclerViewClickListener mListener;
 
     @Inject
-    public FragmentMainListAdapter(LayoutInflater layoutInflater, RecylcerViewClickListener mListener) {
+    public FragmentMainListAdapter(LayoutInflater layoutInflater, RecyclerViewClickListener mListener) {
         this.layoutInflater = layoutInflater;
         this.mListener = mListener;
     }
