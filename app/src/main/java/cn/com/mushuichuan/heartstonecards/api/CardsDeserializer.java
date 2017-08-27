@@ -14,7 +14,7 @@ import java.util.List;
 import cn.com.mushuichuan.heartstonecards.mvp.model.Card;
 import cn.com.mushuichuan.heartstonecards.util.CLogger;
 
-public class CardsDeserialiser implements JsonDeserializer<List<Card>> {
+public class CardsDeserializer implements JsonDeserializer<List<Card>> {
 
     @Override
     public List<Card> deserialize(JsonElement je, Type typeOfT,

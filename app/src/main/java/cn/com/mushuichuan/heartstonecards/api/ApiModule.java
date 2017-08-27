@@ -27,7 +27,7 @@ public class ApiModule {
     @Singleton
     public IApi getCardsApi(OkHttpClient client) {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(new TypeToken<List<Card>>() {}.getType(), new CardsDeserialiser())
+                .registerTypeAdapter(new TypeToken<List<Card>>() {}.getType(), new CardsDeserializer())
                 .create();
 
         Retrofit CardsApiAdapter = new Retrofit.Builder()
